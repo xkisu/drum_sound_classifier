@@ -126,6 +126,9 @@ def make(args):
 
     for drum_type_class in DRUM_TYPES:
         drum_sounds.loc[drum_sounds.file_stem.str.contains(drum_type_class), 'file_drum_type'] = drum_type_class
+        # also check for aliases
+        for drum_type_class_alias in DRUM_TYPE_ALIASES[drum_type_class]:
+            drum_sounds.loc[drum_sounds.file_stem.str.contains(drum_type_class_alias), 'file_drum_type'] = drum_type_class
     logger.info(f'After removing those with duration > {args.max_seconds} seconds, there are {len(drum_sounds)} drum sounds.'
                 f' Class labels found in {sum(~drum_sounds.file_drum_type.isna())} file names.')
 

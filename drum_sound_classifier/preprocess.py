@@ -12,7 +12,7 @@ import librosa
 import numpy as np
 import pandas
 
-from drum_sound_classifier import extract, read_audio, drum_descriptors, DRUM_TYPES
+from drum_sound_classifier import extract, read_audio, drum_descriptors, DRUM_TYPES, DRUM_TYPE_ALIASES
 from drum_sound_classifier.models import CNN_INPUT_SIZE
 
 

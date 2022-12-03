@@ -21,7 +21,7 @@ def filter_quiet_outliers(drum_df):
         
         # Handle the audio data being unreadable/invalid
         if raw_audio is None:
-            return 0
+            return False
 
         frame_length = min(2048, len(raw_audio))
         # Use stft for rms input instead of raw audio, like below for consistency

@@ -18,6 +18,11 @@ def filter_quiet_outliers(drum_df):
     # Return a copy of drum_df without sounds that are too quiet for a stable analysis (all RMS frames < 0.02)
     def loud_enough(clip):
         raw_audio = load_clip_audio(clip)
+        
+        # Handle the audio data being unreadable/invalid
+        if raw_audio is None:
+            return 0
+
         frame_length = min(2048, len(raw_audio))
         # Use stft for rms input instead of raw audio, like below for consistency
         S, _ = librosa.magphase(librosa.stft(y=raw_audio, n_fft=frame_length))

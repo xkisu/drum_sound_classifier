@@ -7,7 +7,11 @@ import numpy as np
 import pandas
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
+
+# Enable experimental feature
+from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
+
 from sklearn.linear_model import LinearRegression
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
